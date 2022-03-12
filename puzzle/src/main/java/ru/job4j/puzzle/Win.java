@@ -1,7 +1,7 @@
 package ru.job4j.puzzle;
 
 public class Win {
-    public static boolean WinHorizontal(int[][] board) {
+    public static boolean winHorizontal(int[][] board) {
         boolean rsl = false;
             for (int i = 0; i < board.length; i++) {
                 int H = 0;
@@ -18,7 +18,7 @@ public class Win {
             return rsl;
     }
 
-    public static boolean WinVertical(int[][] board) {
+    public static boolean winVertical(int[][] board) {
         boolean rsl = false;
         for (int i = 0; i < board.length; i++) {
             int H = 0;
@@ -37,7 +37,7 @@ public class Win {
 
     public static boolean check(int[][] board) {
         boolean rsl = true;
-        rsl = WinHorizontal(board) || WinVertical(board);
+        rsl = winHorizontal(board) || winVertical(board);
         return rsl;
     }
 
