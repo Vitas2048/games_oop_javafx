@@ -4,12 +4,12 @@ public class Win {
     public static boolean winHorizontal(int[][] board) {
         boolean rsl = false;
             for (int i = 0; i < board.length; i++) {
-                int H = 0;
+                int h = 0;
             for (int j = 0; j < board.length; j++) {
                 if (board[i][j] == 1) {
-                    H++;
+                    h++;
                 }
-                if (H == board.length) {
+                if (h == board.length) {
                     rsl = true;
                     break;
                 }
@@ -21,12 +21,12 @@ public class Win {
     public static boolean winVertical(int[][] board) {
         boolean rsl = false;
         for (int i = 0; i < board.length; i++) {
-            int H = 0;
+            int h = 0;
             for (int j = 0; j < board.length; j++) {
                 if (board[j][i] == 1) {
-                    H++;
+                    h++;
                 }
-                if (H == board.length) {
+                if (h == board.length) {
                     rsl = true;
                     break;
                 }
