@@ -1,43 +1,36 @@
 package ru.job4j.puzzle;
 
 public class Win {
-    public static boolean winHorizontal(int[][] board) {
-        boolean rsl = false;
-            for (int i = 0; i < board.length; i++) {
-                int h = 0;
-            for (int j = 0; j < board.length; j++) {
-                if (board[i][j] == 1) {
-                    h++;
-                }
-                if (h == board.length) {
-                    rsl = true;
-                    break;
-                }
+    public static boolean monoHorizontal(int[][] board, int row) {
+        boolean result = true;
+        for (int i = 0; i < board[row].length; i++) {
+            if (board[row][i] != 1) {
+                result = false;
+                break;
             }
         }
-            return rsl;
+        return result;
     }
 
-    public static boolean winVertical(int[][] board) {
-        boolean rsl = false;
+    public static boolean monoVertical(int[][] board, int column) {
+        boolean result = true;
         for (int i = 0; i < board.length; i++) {
-            int h = 0;
-            for (int j = 0; j < board.length; j++) {
-                if (board[j][i] == 1) {
-                    h++;
-                }
-                if (h == board.length) {
-                    rsl = true;
-                    break;
-                }
+            if (board[i][column] != 1) {
+                result = false;
+                break;
             }
         }
-        return rsl;
+        return result;
     }
 
     public static boolean check(int[][] board) {
-        boolean rsl = true;
-        rsl = winHorizontal(board) || winVertical(board);
+        boolean rsl = false;
+        for (int i = 0; i < board.length; i++) {
+            if  (board[i][i] == 1 && (monoVertical(board, i) || monoHorizontal(board, i))) {
+                rsl = true;
+                break;
+            }
+        }
         return rsl;
     }
 
