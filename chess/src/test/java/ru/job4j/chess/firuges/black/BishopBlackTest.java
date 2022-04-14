@@ -43,5 +43,4 @@ public class BishopBlackTest {
         bb1.way(Cell.C2);
     }
 
-
 }
