@@ -8,7 +8,6 @@ import ru.job4j.chess.firuges.black.KingBlack;
 
 public class LogicTest {
 
-    @Ignore
     @Test(expected = ImpossibleMoveException.class)
     public void move()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {

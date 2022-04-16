@@ -31,10 +31,7 @@ public class BishopBlackTest {
         BishopBlack bb1 = new BishopBlack(Cell.C1);
         Cell[] rsl = bb1.way(Cell.G5);
         Cell[] expected = {Cell.D2, Cell.E3, Cell.F4, Cell.G5};
-        for (int i = 0; i < rsl.length; i++) {
-            Assert.assertEquals(rsl[i], expected[i]);
-        }
-
+        assertArrayEquals(rsl, expected);
     }
 
     @Test(expected = ImpossibleMoveException.class)

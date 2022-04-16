@@ -30,8 +30,8 @@ public class BishopBlack implements Figure {
         int x0 = this.position.getX();
         int y0 = this.position.getY();
         for (int index = 0; index < size; index++) {
-            x0 = deltaX > 0 ? x0 + 1 : x0 - 1;
-            y0 = deltaY > 0 ? y0 + 1 : y0 - 1;
+            x0 = deltaX + x0;
+            y0 = deltaY + y0;
             steps[index] = Cell.findBy(x0, y0);
         }
         return steps;
@@ -43,15 +43,10 @@ public class BishopBlack implements Figure {
         int y = source.getY();
         int x1 = dest.getX();
         int y1 = dest.getY();
-        int deltaX = x - x1 > 0 ? -1 : 1;
-        int deltaY = y - y1 > 0 ? -1 : 1;
-        while (x  >= 0 && x <= 7 && y >= 0 && y <= 8 && y != y1 && x1 != x) {
-            x = deltaX > 0 ? x + 1 : x - 1;
-            y = deltaY > 0 ? y + 1 : y - 1;
-            if (y == y1 && x1 == x) {
-                rsl = true;
-                break;
-            }
+        int deltaX = Math.abs(x - x1);
+        int deltaY = Math.abs(y - y1);
+        if (deltaX == deltaY) {
+            rsl = true;
         }
         return rsl;
     }
